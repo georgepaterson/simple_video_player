@@ -9,7 +9,7 @@ Inject using swfobject and optionally set the javascript tracking (this will def
     };
 
 
-    swfobject.embedSWF("LBiPlayer.swf", "video_player", 320, 270, "9.0.0", "resources/expressInstall.swf", flash_vars);
+    swfobject.embedSWF("SimpleVideoPlayer.swf", "video_player", 320, 270, "9.0.0", "resources/expressInstall.swf", flash_vars);
 
 Note: the video will be resized to the full dimensions of the swf, in this case 320 x 270.
 
@@ -28,6 +28,8 @@ The Flash player does what you tell it to and nothing more, so all state and log
     flash_object.volume(50); // sets volume to 50%
 
     flash_object.load('test.flv'); // loads file (needs to be relative to the swf)
+
+## Maintaining state
 
 You also need to know what the player is currently doing. Events are sent to the javascript function you specified to achieve this.
 
