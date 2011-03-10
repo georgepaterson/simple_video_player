@@ -54,9 +54,9 @@ package com.simplevideo.player {
 		}
 		
 		private function add_javascript_callbacks() : void {
-			ExternalInterface.addCallback('play', play);
+			ExternalInterface.addCallback('play_video', play);
 			ExternalInterface.addCallback('pause', pause);
-			ExternalInterface.addCallback('stop', stop);
+			ExternalInterface.addCallback('stop_video', stop);
 			ExternalInterface.addCallback('volume', volume);
 			ExternalInterface.addCallback('load', load);
 		}
