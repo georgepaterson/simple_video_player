@@ -1,0 +1,100 @@
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<title>Leave me alone</title>
+
+	<script src="AC_OETags.js" language="javascript"></script>
+	<script src="history/history.js" language="javascript"></script>
+	<script src="resources/swfobject.js" language="javascript"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" language="javascript"></script>
+
+</head>
+
+<body>
+	
+	<div id="video_player">
+	</div>
+	
+	<ul id="controls">
+		<li><a href="#" id="play">Play</a></li>
+		<li><a href="#" id="pause">Pause</a></li>
+		<li><a href="#" id="stop">Stop</a></li>
+		<li><a href="#" id="mute">Mute</a></li>
+		<li><a href="#" id="skip">Skip to 60%</a></li>
+		<li><a href="#" id="load">Load a different video</a></li>
+	</ul>
+	
+	<script type="text/javascript" charset="utf-8">
+		flash_vars = {};
+	
+		swfobject.embedSWF("LBiPlayer.swf", "video_player", 960, 480, "9.0.0", "resources/expressInstall.swf", flash_vars);
+
+		function thisMovie(movieName) {
+	        if (navigator.appName.indexOf("Microsoft") != -1) {
+	            return window[movieName];
+	        } 
+	        else {
+	            return document[movieName];
+	    	}
+		}
+
+		var update_player = function(status, params) {
+			
+			switch(status) {
+				case 'init':
+					
+					$('#controls').find('a#play').click(function() {
+						thisMovie("video_player").play();
+						return false;
+					});
+
+					$('#controls').find('a#pause').click(function() {
+						thisMovie("video_player").pause();
+						return false;
+					});
+
+					$('#controls').find('a#stop').click(function() {
+						thisMovie("video_player").stop();
+						return false;
+					});
+
+					$('#controls').find('a#mute').click(function() {
+						thisMovie("video_player").volume(0);
+						return false;
+					});
+
+					$('#controls').find('a#skip').click(function() {
+						thisMovie("video_player").play(60);
+						return false;
+					});
+
+					$('#controls').find('a#load').click(function() {
+						thisMovie("video_player").load('assets/unilever.flv');
+						return false;
+					});
+
+					thisMovie("video_player").load('assets/test.flv');
+					
+				break;
+				case 'loaded':
+					console.log('loaded', params.duration);
+				break;
+				case 'playing':
+					console.log('playing', params.position);
+				break;
+				case 'paused':
+					console.log('paused', params.position);
+				break;
+				case 'stopped':
+					console.log('stopped');
+				break;
+			}
+		}
+
+	</script>
+
+</body>
+
+</html>
