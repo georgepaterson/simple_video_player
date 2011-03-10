@@ -24,7 +24,7 @@
 	</ul>
 	
 	<script type="text/javascript" charset="utf-8">	
-		swfobject.embedSWF("../../bin/SimpleVideoPlayer.swf", "video_player", 960, 480, "9.0.0", "resources/expressInstall.swf");
+		swfobject.embedSWF("SimpleVideoPlayer.swf", "video_player", 960, 480, "9.0.0", "resources/expressInstall.swf");
 
 		var update_player, assign_controls;
 
@@ -75,7 +75,7 @@
 			    	}
 
 					assign_controls(video_player);
-					video_player.load('../examples/simple/assets/test.flv');
+					video_player.load('assets/test.flv');
 					
 				break;
 				case 'loaded':
