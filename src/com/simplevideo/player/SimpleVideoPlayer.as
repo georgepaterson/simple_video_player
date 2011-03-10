@@ -1,4 +1,4 @@
-package com.lbi.player {
+package com.simplevideo.player {
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
 	import flash.events.Event;
@@ -9,13 +9,13 @@ package com.lbi.player {
 	/**
 	 * @author layter
 	 */
-	public class LBiPlayer extends Sprite {
+	public class SimpleVideoPlayer extends Sprite {
 		
 		private var flash_vars: Object;
 		private var update_js: String;
-		private var player: VideoPlayer;
+		private var player: StreamWrapper;
 		
-		public function LBiPlayer() {
+		public function SimpleVideoPlayer() {
 			stage.scaleMode = StageScaleMode.NO_SCALE;
 			stage.align = StageAlign.TOP_LEFT;
 			
@@ -25,7 +25,7 @@ package com.lbi.player {
 				connect_to_javascript();
 			}
 
-			player = new VideoPlayer();
+			player = new StreamWrapper();
 			player.addEventListener(Event.ACTIVATE, init_js, false, 0, true);
 			player.init(this.stage, update_js);
 			addChild(player);

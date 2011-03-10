@@ -1,4 +1,4 @@
-package com.lbi.player {
+package com.simplevideo.player {
 	import flash.events.Event;
 
 	/**

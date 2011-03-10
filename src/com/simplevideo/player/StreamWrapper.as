@@ -1,4 +1,4 @@
-package com.lbi.player {
+package com.simplevideo.player {
 	import flash.events.TimerEvent;
 	import flash.utils.Timer;
 	import flash.external.ExternalInterface;
@@ -18,7 +18,7 @@ package com.lbi.player {
 	/**
 	 * @author layter
 	 */
-	public class VideoPlayer extends Sprite {
+	public class StreamWrapper extends Sprite {
 		
 		private var target_stage: Stage;
 		private var stream : NetStream;
